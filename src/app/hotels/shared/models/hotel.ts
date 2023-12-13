@@ -1,5 +1,5 @@
 export interface IHotel {
-  hotelId: number;
+  id: number;
   hotelName: string;
   description: string;
   price: number;
@@ -13,7 +13,7 @@ export interface IHotel {
  */
 export class Hotel implements IHotel {
   constructor(
-    public hotelId: number,
+    public id: number,
     public hotelName: string,
     public description: string,
     public price: number,

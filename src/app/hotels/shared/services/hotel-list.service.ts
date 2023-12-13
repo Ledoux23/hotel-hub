@@ -9,7 +9,8 @@ import { catchError, filter, map, switchMap, tap } from "rxjs/operators";
 })
 export class HotelListService {
 
-  private readonly HOTEL_API_URL = 'api/hotels.json';
+  private readonly HOTEL_API_URL = 'api/hotels';  //Pour in memory
+  // private readonly HOTEL_API_URL = 'api/hotels.json'; //pour le fichier json
 
   constructor(private http: HttpClient) {
   }
@@ -27,7 +28,7 @@ export class HotelListService {
     }
 
     return this.getHotels().pipe(
-      map(hotels => hotels.find(hotel => hotel.hotelId === id)),
+      map(hotels => hotels.find(hotel => hotel.id === id)),
       filter(hotel => !!hotel), // Filter out undefined
       switchMap(hotel => of(hotel || this.getDefaultHotel())) // Return default if not found
     );
@@ -46,7 +47,7 @@ export class HotelListService {
 
   private getDefaultHotel(): IHotel {
     return {
-      hotelId: 0,
+      id: 0,
       hotelName: '',
       price: 0,
       description: '',

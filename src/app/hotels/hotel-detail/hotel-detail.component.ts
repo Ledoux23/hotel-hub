@@ -37,7 +37,7 @@ export class HotelDetailComponent implements OnInit {
     }
 
     this.hotelService.getHotels().subscribe((hotels: IHotel[]) => {
-      this.hotel = hotels.find(hotel => hotel.hotelId === id)!;
+      this.hotel = hotels.find(hotel => hotel.id === id)!;
       console.log('hotel : ', this.hotel);
     })
   }
