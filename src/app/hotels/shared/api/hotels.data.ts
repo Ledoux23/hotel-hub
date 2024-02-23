@@ -11,7 +11,8 @@ export class HotelData implements InMemoryDbService {
         description: "Belle vue sur la mer avec ses requins bleus !",
         price: 330.5,
         imageUrl: "assets/img/hotel-room.jpg",
-        rating: 3.5
+        rating: 3.5,
+        tags: ['nouveau']
       },
       {
         id: 2,
@@ -19,7 +20,8 @@ export class HotelData implements InMemoryDbService {
         description: "Chambres et suites haut standing. Lieu indiqué pour un weekend paisible.",
         price: 230.5,
         imageUrl: "assets/img/hotel-new-room.jpg",
-        rating: 4.5
+        rating: 4.5,
+        tags: ['nouveau']
       },
       {
         id: 3,
@@ -27,7 +29,8 @@ export class HotelData implements InMemoryDbService {
         description: "Séjourner dans un cadre paisible et agréable, adapté à vos besoins !",
         price: 425,
         imageUrl: "assets/img/hotel-room.jpg",
-        rating: 3
+        rating: 3,
+        tags: ['nouveau']
       },
       {
         id: 4,
@@ -35,7 +38,8 @@ export class HotelData implements InMemoryDbService {
         description: "Belle vue sur la mer !",
         price: 500,
         imageUrl: "assets/img/hotel-new-room.jpg",
-        rating: 3.75
+        rating: 3.75,
+        tags: ['nouveau']
       },
       {
         id: 5,
@@ -43,7 +47,8 @@ export class HotelData implements InMemoryDbService {
         description: "Belle vue sur la mer !",
         price: 230.5,
         imageUrl: "assets/img/hotel-room.jpg",
-        rating: 2.5
+        rating: 2.5,
+        tags: ['nouveau']
       },
       {
         id: 6,
@@ -51,11 +56,16 @@ export class HotelData implements InMemoryDbService {
         description: "Belle vue sur la mer !",
         price: 350.5,
         imageUrl: "assets/img/hotel-new-room.jpg",
-        rating: 3.5
+        rating: 3.5,
+        tags: ['nouveau']
       }
     ];
 
     return { hotels };
   }
 
+  //pour incrémenter les id
+  genId(hotels: IHotel[]): number {
+    return hotels.length > 0 ? Math.max(...hotels.map(hotel => hotel.id)) + 1 : 1;
+  }
 }

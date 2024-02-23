@@ -48,18 +48,23 @@
             ></app-star-rating>
 
             <span class="material-icons bg-primary text-white p-2 rounded_circle btn"
-            [routerLink]="['/hotels', hotel.hotelId, 'edit']">
+            [routerLink]="['/hotels', hotel.id, 'edit']">
               edit
             </span>
             <span class="material-icons bg-info text-white p-2 rounded_circle btn"
-            [routerLink]="['/hotels', hotel.hotelId]">
+            [routerLink]="['/hotels', hotel.id]">
               keyboard_arrow_right
             </span>
           </div>
-
-          <span class="badge bg-info" *ngIf="showBadge">
-            Nouveau
-          </span>
+          <ng-container *ngFor="let tag of hotel.tags; let i = index">
+            <ng-container *ngIf="showBadge">
+              <span class="badge badge-pill"
+                [ngClass]="i % 2 === 0 ? 'bg-info' : 'bg-success ml-2 mr-2'"
+              >
+                {{ tag }}
+              </span>
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </div>
